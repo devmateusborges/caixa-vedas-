@@ -3,7 +3,7 @@ import "dotenv/config";
 import fastify from "fastify";
 import cors from "@fastify/cors";
 import { userRoutes } from "./routes/user";
-import { authRoutes } from "./routes/auth";
+
 import multipart from "@fastify/multipart";
 import jwt from "@fastify/jwt";
 
@@ -33,7 +33,6 @@ app.register(jwt, {
   secret: "abcdefghijklmnopqrstuvwxyz123456789",
 });
 
-app.register(authRoutes);
 app.register(userRoutes);
 app.register(productRoutes);
 app.register(clientRoutes);

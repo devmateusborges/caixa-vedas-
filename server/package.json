@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm i && tsup src",
+    "prod": "node ./dist/server.js"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +23,7 @@
     "D": "^1.0.0",
     "dotenv": "^16.0.3",
     "fastify": "^4.17.0",
+    "tsup": "^6.7.0",
     "tsx": "^3.12.7",
     "typescript": "^5.0.4",
     "zod": "^3.21.4"
