@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String @id @default(uuid())
+  name      String
+  login     String
+  active    Boolean
+  avatarUrl String
+  password  String
+  sales    Sales[]
+  createdAt DateTime @default(now())
+  @@map("user")
+}
+
+model Product {
+  id        String @id @default(uuid())
+  name         String
+  price        Float  
+  describe     String
+  icon        String
+  amount Int?
+  sales   Sales[]
+  createdAt DateTime @default(now())
+  
+
+  @@map("product")
+}
+
+// fornecedores
+model Supplier {
+  id        String @id @default(uuid())
+  name         String
+  address      String
+  email        String
+  createdAt DateTime @default(now())
+
+  @@map("suppliers")
+}
+// vededor
+model Seller {
+  id        String @id @default(uuid())
+  name         String
+  email        String
+  salary       Float
+  createdAt DateTime @default(now())
+
+  @@map("sellers")
+}
+// clientes
+model Client {
+  id        String @id @default(uuid())
+  name         String
+  address      String
+  email        String
+  credits      Float
+  createdAt DateTime @default(now())
+
+  @@map("clients")
+}
+
+model Sales {
+  id    String @id @default(uuid())
+  productId String
+  product Product @relation(fields: [productId], references: [id])
+  clientId String
+  User   User @relation(fields: [clientId], references: [id])
+  totalPrice Int
+  amount  Int
+  createdAt DateTime @default(now())
+} 
+

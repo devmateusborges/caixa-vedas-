@@ -1,0 +1,63 @@
+@HOSTAPI=http://127.0.0.1:3333
+
+###   
+POST {{HOSTAPI}}/sales HTTP/1.1
+Content-Type: application/json
+
+{ 
+   "productId":"0591d426-7a48-4976-9a23-75b3b967eee4",
+   "clientId": "adeeacc6-1b1d-4242-a327-18bd26cf1599",
+   "amount": 2,
+   "totalPrice": 10
+}
+###
+
+###
+get {{HOSTAPI}}/sales HTTP/1.1
+Content-Type: application/json
+###
+
+
+###
+get {{HOSTAPI}}/sales/6a7067c8-2fe4-47dc-bcae-61dc84756016 HTTP/1.1
+Content-Type: application/json
+###
+
+###
+PUT {{HOSTAPI}}/user/89be268a-c2fd-49b3-893e-344b6218c6fc HTTP/1.1
+Content-Type: application/json
+
+{ 
+   "name":"Mateus",
+   "login":"mateus",
+   "password":"29122003",
+   "active":false,
+   "avatarUrl":"www.github.com/devmateusborges.png"
+}
+
+###
+Delete {{HOSTAPI}}/product/e093d248-e21a-4a8f-aa4c-e514ce3bc51c HTTP/1.1
+Content-Type: application/json
+###
+
+###
+PUT {{HOSTAPI}}/user/82faa451-295c-4675-958e-a520ee21b3da HTTP/1.1
+Content-Type: application/json
+
+{ 
+   "name":"Mateus",
+   "login":"mateus",
+   "password":"29122003",
+   "active":false,
+   "avatarUrl":""
+}
+
+###
+
+
+
+
+
+
+
+
